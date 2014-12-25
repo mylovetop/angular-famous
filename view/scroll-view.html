@@ -1,17 +1,25 @@
-<div fa-app style="position: fixed;left: 0; bottom: 0;width: 100%;height: 100%;" >
+<style>
+    .app{
+        position: fixed;left: 0; bottom: 0;width: 100%;height: 100%;
+    }
+
+    .header{
+        z-index: 99;
+        background-color: black;
+        color: white;
+    }
+</style>
+<div fa-app ng-class="{app:false}" class="app" >
     <fa-header-footer-layout>
 
-        <fa-modifier fa-size="[undefined, 50]"  id="sideBarMod" fa-align="left" ng-class="phone-frame">
-            <fa-container-surface fa-z-index="99">
-                <fa-surface>
-                    <div style="background-color: black; width: 100%;height: 50px;z-index: 99;">
-                        <div style="float: left;">11</div>
-                        <div style="float: left;">11</div>
-                        <div style="float: left;">11</div>
-                    </div>
-                </fa-surface>
-            </fa-container-surface>
+        <fa-modifier fa-size="[undefined, 50]"  id="sideBarMod" fa-align="left">
+            <fa-surface class="header">
+                <div style="float: left;">11</div>
+                <div style="float: left;">11</div>
+                <div style="float: left;">11</div>
+            </fa-surface>
         </fa-modifier>
+
         <fa-modifier>
             <fa-scroll-view fa-pipe-from="eventHandler" >
                 <fa-view ng-repeat="item in list">
@@ -27,7 +35,7 @@
                 </fa-view>
             </fa-scroll-view>
         </fa-modifier>
-        <fa-modifier fa-size="[undefined, 50]"  id="sideBarMod" >
+        <fa-modifier fa-size="[undefined, 50]"  id="sideBarMod">
             <fa-surface fa-pipe-to="eventHandler"
                         fa-background-color="'black'"
                         fa-size="[undefined, undefined]"
